@@ -1,0 +1,433 @@
+::-webkit-scrollbar
+{
+    display: none;
+}
+::selection
+{
+    background:none;
+}
+html
+{
+   font-size:7vw;
+}
+body
+{
+    background-color: rgb(0, 2, 22);
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inconsolata', monospace;
+    color: white;
+    cursor: default;
+}   
+h1
+{
+    font-size: 50px;
+    margin:20px;
+    padding:0px;
+}
+#game-board
+{
+  
+    height: 40vw;
+    max-width: 2000px;
+    max-height: 1000px;
+    min-width:500px;
+    min-height:400px;
+    background-color: rgb(0, 2, 20);
+    border:.08rem solid rgb(160, 160, 160);
+    box-shadow: 0px 0px 70px 15px rgb(66, 66, 66);
+    position: relative;
+    overflow: hidden;
+    border-radius: .2rem;
+    padding: .05rem;
+}
+#player
+{
+    width:3.5vw;
+    height:3.5vw;
+    background:url("img/player0000.png");
+    background-size: cover;
+    position: absolute;
+    bottom: 0.5vw;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%);
+    translate:0px;
+}
+.shot
+{
+    width:.05rem;
+    height:.1rem;
+    background-color: rgb(217, 255, 0); 
+    position: absolute;
+    z-index: 2;
+    transform: translate(-50%);
+}
+.invaders-shot-cointainer
+{
+    position: absolute;
+    top:50px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+}
+.invaderShot
+{
+    width:.05rem;
+    height:.1rem;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    z-index: 1;
+    transform: translate(700%,400%);
+}
+#invadersContainer
+{
+    padding:0px 20px;
+    position: absolute;
+    top:.5rem;
+    left:0px;
+    display: flex;
+    flex-direction: column;
+    gap:1vw;
+}
+.row
+{
+    display: flex;
+    gap:3vw;
+}
+#upinterface
+{
+    width:100%;
+    
+    display: flex;
+    justify-content: center;
+}
+#points
+{
+    width:40%;
+    padding-left:.05rem;
+    letter-spacing: 6px;
+    font-size: .3rem !important;
+}
+#lives
+{
+    width:40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right:.03rem;
+}
+#lives>img
+{
+    margin:0px .04rem;
+    width: 1.8vw !important;
+    height: 1.6vw !important;
+}
+#nextLevel
+{
+    width:20%;
+   
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color:red;
+    font-weight: bold;
+    letter-spacing: 5px;
+    font-size: .3rem !important;
+}
+.inv
+{
+    width:4vw;
+    height: 4vw;
+}
+.displayNone
+{
+    background-color: rgb(0, 2, 20);
+}
+.invaderSkin1
+{
+    background:url("img/invader10000.png");
+    background-size: contain;
+}
+.invaderSkin2
+{
+    background:url("img/invader20000.png");
+    background-size: contain;
+}
+.menuStart
+{
+    position: absolute;
+    top:0px;
+    left:0px;
+    bottom: 0px;
+    right: 0px;
+    z-index: 4;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:5vw;
+    transition: all 1s ease-out;
+}
+.menuStart>h1
+{
+   
+    margin: 2vw;
+    padding: 0px;
+    letter-spacing: 15px;
+}
+.btn
+{
+    width:40%;
+   
+    padding:10px 20px;
+    margin: 20px;
+    border-radius: 15px;
+    border:8px solid white;
+    background:none;
+    color: white;
+    transition: all .4s ease;
+    cursor: pointer;
+    opacity:1;
+}
+.btn:hover
+{
+    color: yellow;
+    border:8px solid yellow;
+    transform: scale(1.1);
+}
+.bs
+{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:1vw;
+}
+.bs>h2
+{
+ 
+    margin:0px;
+    padding: 0px;
+    letter-spacing: 15px;
+    color: rgb(194, 194, 34);
+}
+.bs>h3
+{
+    
+    margin:0px;
+    padding: 0px;
+}
+.losetheme
+{
+    position: absolute;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    z-index: 4;
+    filter:blur(10px);
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    transition: all .3s ease;
+}
+.lose
+{
+    position: absolute;
+    top:50%;
+    transform: translate(0,-50%);
+    left:0px;
+    right:0px;
+    z-index: 5;
+    
+    background-color: rgb(1, 1, 34);
+    border-top:8px solid white;
+    border-bottom:8px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: all .5s ease;
+}
+.lose>h1
+{
+    color:red;
+    letter-spacing: 10px;
+    
+    margin:0px;
+    padding:0px;
+    
+}
+.lose>h2
+{
+    margin: 0px;
+    padding: 0px;
+    
+    letter-spacing: 15px;
+}
+.lose>h3
+{
+    margin:0px;
+    padding: 0px;
+   
+}
+
+.alert
+{
+    position: absolute;
+    top:0px;
+    left:0px;
+    bottom: 0px;
+    right: 0px;
+    font-size: 80px;
+    color: red;
+    height:100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    z-index:1000;
+    background-color: black;
+}
+@media(max-width:1200px)
+{
+    .bs>h2
+    {
+        font-size:35px;
+    }
+    .bs>h3
+    {
+        font-size: 15px;
+    }
+    .btn
+    {
+        font-size: 30px;
+    }
+    .menuStart>h1
+    {
+        font-size: 35px;
+    }
+    #nextLevel
+    {
+        font-size: 15px;
+    }
+    #points
+    {
+        font-size: 25px;
+    }
+    #lives>img
+    {
+        width:25px;
+    }
+    #game-board
+    {
+        width:95vw;
+        
+    }
+    .lose>h1
+    {
+        font-size: 50px;
+        margin-bottom: 8px;
+    }
+    .lose>h2
+    {
+        font-size: 35px;
+    }
+    .lose>h3
+    {
+        font-size: 15px;
+    }
+    .lose
+    {
+        padding:10px 0px;
+    }
+}
+@media(min-width:1201px)
+{
+    .bs>h2
+    {
+        font-size:70px;
+    }
+    .bs>h3
+    {
+        font-size: 20px;
+    }
+    .btn
+    {
+        font-size: 50px;
+    }
+    .menuStart>h1
+    {
+        font-size: 60px;
+    }
+    #nextLevel
+    {
+        font-size: 30px;
+    }
+    #points
+    {
+        font-size: 35px;
+    }
+    #lives>img
+    {
+        width:35px;
+    }
+    #game-board
+    {
+        width:80vw;
+    }
+    .lose
+    {
+        padding:20px 0px;
+    }
+    .lose>h1
+    {
+        font-size: 70px;
+        margin-bottom: 15px;
+    }
+    .lose>h2
+    {
+        font-size: 50px;
+    }
+    .lose>h3
+    {
+        font-size: 25px;
+    }
+}
+.smartphoneInfo
+{
+    display: none;
+}
+@media (max-width:1024px) {
+    .smartphoneInfo
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        position: fixed;
+        top:0;
+        left:0;
+        bottom: 0;
+        right: 0;
+        background-color: rgb(0, 2, 22);
+        z-index: 10;
+        padding: 0 1rem;
+    }
+    .smartphoneInfo>h2
+    {
+        font-size: .5rem;
+        text-align: center;
+        color: rgb(217, 255, 0);
+    }
+    .smartphoneInfo>h3
+    {
+        font-size: .4rem;
+        text-align: center;
+    }
+}
